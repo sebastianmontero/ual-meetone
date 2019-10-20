@@ -1,6 +1,6 @@
 {
-  "name": "ual-meetone",
-  "version": "0.1.1",
+  "name": "@smontero/ual-meetone",
+  "version": "0.1.2",
   "main": "dist/index.js",
   "license": "MIT",
   "author": {

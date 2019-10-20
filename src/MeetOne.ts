@@ -20,30 +20,12 @@ export class MeetOne extends Authenticator {
   private meetoneIsLoading: boolean = true
   private initError: UALError | null = null
 
-  private readonly supportedChains = {
-    // MEET.ONE wallet only supports EOS mainnet for now.
-    aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906: {},
-  }
-
   /**
    * MeetOne Constructor.
    * @param chains
    */
   constructor(chains: Chain[]) {
     super(chains)
-  }
-
-  private supportsAllChains(): boolean {
-    if (this.chains.length < 1) {
-      return false
-    }
-
-    for (const chain of this.chains) {
-      if (!this.supportedChains.hasOwnProperty(chain.chainId)) {
-        return false
-      }
-    }
-    return true
   }
 
   /**
@@ -88,7 +70,7 @@ export class MeetOne extends Authenticator {
 
   public shouldRender(): boolean {
     // @ts-ignore
-    if (this.supportsAllChains() && this.isMeetOneWebview()) {
+    if (this.isMeetOneWebview()) {
       return true
     }
     return false
